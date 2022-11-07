@@ -369,6 +369,25 @@ class Driver {
     {
         return $this->name;
     }
+
+    /**
+     * @param Ecurie $ecurie
+     * @return Car
+     */
+    public function setEcurie(Ecurie $ecurie): Car
+    {
+        $this->ecurie = $ecurie;
+
+        return $this;
+    }
+
+    /**
+     * @return Ecurie
+     */
+    public function getEcurie(): Ecurie
+    {
+        return $this->ecurie;
+    }
 }
 
 class FerrariF175 extends Car {
