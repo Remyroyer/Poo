@@ -353,11 +353,13 @@ class Car {
 }
 
 class Driver {
+    protected Ecurie $ecurie;
     protected string $name;
 
-    public function __construct(string $name)
+    public function __construct(string $name, Ecurie $ecurie)
     {
         $this->name = $name;
+        $this->ecurie = $ecurie;
     }
 
     /**
@@ -406,12 +408,11 @@ class Ecurie {
     }
 } 
 
-$leclerc = new Driver('Charles Leclerc', $ecurieFord);
-$sainz = new Driver('Carlos Sainz');
 $ecurieFord = new Ecurie('Ford');
+$sainz = new Driver('Carlos Sainz', $ecurieFord);
+$leclerc = new Driver('Charles Leclerc', $ecurieFord);
 
 $ferrariPowerUnit = new Engine(6, 500, 0.6, 'Ferrari', '2022');
-
 
 $ferarri = new FerrariF175($ferrariPowerUnit, $leclerc, $ecurieFord);
 $ferarri->setDriver($leclerc)->setTyres(new Tyre(Tyre::TYPE_SOFT));
